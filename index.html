@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Memes 🚀</title>
+  <style>
+    .meme-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+    .meme-item img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    .meme-item img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 Fresh Memes Daily</h1>
+  <div class="meme-grid">
+    <div class="meme-item">
+      <!-- Example with absolute path -->
+      <img src="https://seekerfff.github.io/github.io/memes/meme1.jpg" alt="Meme 1">
+    </div>
+    <div class="meme-item">
+      <!-- Example with relative path -->
+      <img src="/memes/meme2.jpg" alt="Meme 2">
+    </div>
+  </div>
+</body>
+</html>
