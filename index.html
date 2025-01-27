@@ -1,35 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Daily Memes 🚀</title>
-  <style>
-    .meme-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 15px;
-      padding: 20px;
-    }
-    .meme-item img {
-      width: 100%;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-    .meme-item img:hover {
-      transform: scale(1.05);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$BULLISH - Meme Coin of the Bull Market</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --near-black: #000;
+            --near-blue: #00c8ff;
+            --near-purple: #8a2be2;
+            --near-gradient: linear-gradient(45deg, var(--near-blue), var(--near-purple));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--near-black);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: var(--near-gradient);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 20px rgba(0,200,255,0.5);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            animation: slideUp 1s ease-out;
+        }
+
+        .meme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .meme-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .meme-card:hover {
+            transform: translateY(-10px) rotateX(10deg) rotateY(-5deg);
+            box-shadow: 0 25px 50px rgba(0,200,255,0.2);
+        }
+
+        .meme-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: modalFade 0.3s ease-out;
+        }
+
+        .modal-img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 15px;
+            border: 3px solid var(--near-blue);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem;
+            color: var(--near-blue);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            background: rgba(255,255,255,0.05);
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: rgba(0,200,255,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-  <h1>🔥 Fresh Memes Daily</h1>
-  <div class="meme-grid">
-    <div class="meme-item">
-      <!-- Example with absolute path -->
-      <img src="https://seekerfff.github.io/bullish-friend/memes/meme1.webp" alt="Meme 1">
+    <header class="hero">
+        <h1>🐂 $BULLISH</h1>
+        <p>Where Bulls Meet Blockchain</p>
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-chart-line fa-3x" style="color: var(--near-blue);"></i>
+                <h3>Always Up Only</h3>
+                <p>100% Bullish Technology</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-coins fa-3x" style="color: var(--near-purple);"></i>
+                <h3>NEAR Powered</h3>
+                <p>Lightning Fast Transactions</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-laugh fa-3x" style="color: var(--near-blue);"></i>
+                <h3>Meme Ecosystem</h3>
+                <p>Community-Driven Fun</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="meme-grid" id="gallery">
+        <!-- Memes will be auto-loaded here -->
     </div>
-    <div class="meme-item">
-      <!-- Example with relative path -->
-      <img src="/memes/meme2.jpg" alt="Meme 2">
+
+    <div class="modal" id="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-img" id="modalImg">
     </div>
-  </div>
+
+    <script>
+        // Auto-load memes from /memes folder
+        const memes = 2; // Number of memes in your folder
+        const gallery = document.getElementById('gallery');
+
+        for (let i = 1; i <= memes; i++) {
+            const memeCard = document.createElement('div');
+            memeCard.className = 'meme-card';
+            memeCard.innerHTML = `
+                <img src="memes/meme${i}.webp" 
+                     alt="Bullish Meme ${i}"
+                     onclick="openModal(this.src)">
+            `;
+            gallery.appendChild(memeCard);
+        }
+
+        // Modal functions
+        function openModal(src) {
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modalImg');
+            modal.classList.add('active');
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
