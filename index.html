@@ -24,256 +24,162 @@
             background: var(--navy);
             color: var(--yellow);
             font-family: 'Arial', sans-serif;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* Animated Background Decorations */
-        .deco-container {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: -1;
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
         }
 
-        .deco-webp {
-            position: absolute;
-            opacity: 0.15;
-            animation: float 12s ease-in-out infinite;
-            max-width: 150px;
+        .logo {
+            width: 200px;
+            margin: 2rem auto;
+            animation: float 3s ease-in-out infinite;
         }
 
-        /* Buy Button */
-        .buy-button {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            padding: 18px 36px;
-            background: linear-gradient(135deg, var(--teal), var(--yellow));
-            color: var(--navy);
-            border: none;
-            border-radius: 25px;
-            font-size: 1.4rem;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(0,236,151,0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .buy-button:hover {
-            transform: scale(1.08) rotate(2deg);
-            box-shadow: 0 12px 35px rgba(0,236,151,0.5);
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         /* Social Links */
         .social-links {
-            position: fixed;
-            left: 30px;
-            bottom: 30px;
             display: flex;
-            gap: 20px;
-            z-index: 1000;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
         }
 
         .social-link {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--orange);
             transition: all 0.3s ease;
             text-decoration: none;
         }
 
         .social-link:hover {
-            color: var(--red);
-            transform: translateY(-5px);
-        }
-
-        /* Main Content */
-        .hero {
-            text-align: center;
-            padding: 8rem 2rem 4rem;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
             color: var(--teal);
-            text-shadow: 0 0 35px rgba(0,236,151,0.25);
-            margin-bottom: 1.5rem;
+            transform: translateY(-3px);
         }
 
-        .hero p {
-            font-size: 1.4rem;
-            color: var(--yellow);
+        /* Content Section */
+        .content {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            text-align: center;
         }
 
-        /* Meme Gallery */
-        .meme-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            padding: 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .meme-card {
-            background: rgba(255,253,130,0.05);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer;
-            position: relative;
-            border: 2px solid transparent;
-        }
-
-        .meme-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--teal);
-            box-shadow: 0 15px 40px rgba(0,236,151,0.15);
-        }
-
-        .meme-card img {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
-            border-radius: 18px;
-        }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-20px) rotate(3deg); }
-            50% { transform: translateY(10px) rotate(-3deg); }
-            75% { transform: translateY(-15px) rotate(2deg); }
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
+        /* Creation Badge */
+        .creation-badge {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(45,48,71,0.98);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
+            bottom: 20px;
+            left: 20px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
         }
 
-        .modal.active {
-            display: flex;
-            animation: modalFade 0.3s ease-out;
+        .creation-badge:hover {
+            opacity: 1;
+            transform: scale(1.05);
         }
 
-        .modal-img {
-            max-width: 90%;
-            max-height: 90%;
+        .creation-badge img {
+            width: 120px;
+            border-radius: 10px;
+            border: 2px solid var(--teal);
+        }
+
+        .creation-text {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--yellow);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        /* Token Address */
+        .token-address {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
             border-radius: 20px;
-            border: 3px solid var(--teal);
-            box-shadow: 0 0 50px rgba(0,236,151,0.3);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        @keyframes modalFade {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .token-address:hover {
+            background: var(--teal);
+            color: var(--navy);
+        }
+
+        /* NEAR Protocol Badge */
+        .near-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: var(--teal);
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-    <!-- Decorative Background Elements -->
-    <div class="deco-container" id="decoContainer"></div>
-
-    <!-- Social Links -->
-    <div class="social-links">
-        <a href="https://x.com/bullish_friend" target="_blank" class="social-link">
-            <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://t.me/Bullish_Friends" target="_blank" class="social-link">
-            <i class="fab fa-telegram"></i>
-        </a>
-    </div>
-
-    <!-- Buy Button -->
-    <button class="buy-button" onclick="window.open('https://https://meme.cooking/meme/1254', '_blank')">
-        <i class="fas fa-rocket"></i>
-        BUY $BULLISH
-    </button>
-
     <!-- Hero Section -->
     <section class="hero">
-        <h1>🐂 $BULLISH FRIEND</h1>
-        <p>Where Crypto Enthusiasm Meets Community Power</p>
+        <img src="src/1.webp" alt="BULLISH Logo" class="logo">
+        
+        <div class="social-links">
+            <a href="https://t.me/Bullish_Friends" target="_blank" class="social-link">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://x.com/bullish_friend" target="_blank" class="social-link">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
     </section>
 
-    <!-- Meme Gallery -->
-    <div class="meme-grid">
-        <div class="meme-card" onclick="openModal('memes/meme1.webp')">
-            <img src="memes/meme1.webp" alt="Bullish Meme 1">
-        </div>
-        <div class="meme-card" onclick="openModal('memes/meme2.webp')">
-            <img src="memes/meme2.webp" alt="Bullish Meme 2">
-        </div>
+    <!-- Main Content -->
+    <div class="content">
+        <p>$BULLISH is a vibrant, artist-driven ecosystem dedicated to revitalizing creativity on NEAR. We empower artists by building a dynamic hub where innovation, collaboration, and bold expression thrive. A key strategy for growth is uniting the best memes through art and humor, forging strong bonds between meme communities and strengthening meme culture on NEAR. As NEAR is an AI-powered blockchain, it's only natural for artists to harness AI technologies in their creative process. By blending cutting-edge technology, such as AI-generated videos, AI-powered audio, and other creative tools, with the talent and vision of real artists, $bullish fosters a space for creators to grow, connect, and redefine the boundaries of digital art and culture. Together, we aim to make NEAR the ultimate destination for artists, memers, collectors, and visionaries.</p>
     </div>
 
-    <!-- Modal -->
-    <div class="modal" id="modal" onclick="closeModal()">
-        <img class="modal-img" id="modalImg">
+    <!-- Creation Badge -->
+    <a href="https://x.com/memedotcooking" target="_blank" class="creation-badge">
+        <img src="src/meme-cooking.jpg" alt="Creation Platform">
+        <div class="creation-text">Created on MemeCooking</div>
+    </a>
+
+    <!-- Token Address -->
+    <div class="token-address" onclick="copyAddress()">
+        CA: bullish-1254.meme-cooking.near
+        <span class="tooltip">Copied!</span>
+    </div>
+
+    <!-- NEAR Protocol Badge -->
+    <div class="near-badge">
+        ⚡ Powered by NEAR Protocol
     </div>
 
     <script>
-        // Generate decorative elements
-        function createDecorations() {
-            const container = document.getElementById('decoContainer');
-            const positions = [
-                { top: '10%', left: '5%', size: '120px' },
-                { top: '25%', right: '3%', size: '90px' },
-                { bottom: '15%', left: '8%', size: '150px' },
-                { top: '40%', right: '12%', size: '100px' },
-                { bottom: '30%', left: '15%', size: '80px' },
-                { top: '18%', left: '20%', size: '110px' },
-                { bottom: '25%', right: '18%', size: '130px' },
-                { top: '35%', left: '5%', size: '95px' }
-            ];
-
-            positions.forEach((pos, index) => {
-                const img = document.createElement('img');
-                img.className = 'deco-webp';
-                img.src = `src/${(index % 16) + 1}.webp`; // Cycles through 1-16.webp
-                img.style.cssText = `
-                    top: ${pos.top};
-                    left: ${pos.left || 'auto'};
-                    right: ${pos.right || 'auto'};
-                    bottom: ${pos.bottom || 'auto'};
-                    width: ${pos.size};
-                    animation-delay: ${index * 0.5}s;
-                `;
-                container.appendChild(img);
-            });
+        function copyAddress() {
+            const text = 'bullish-1254.meme-cooking.near';
+            navigator.clipboard.writeText(text);
+            
+            const tooltip = document.querySelector('.tooltip');
+            tooltip.style.display = 'inline';
+            setTimeout(() => {
+                tooltip.style.display = 'none';
+            }, 2000);
         }
-
-        // Modal functions
-        function openModal(src) {
-            const modal = document.getElementById('modal');
-            const modalImg = document.getElementById('modalImg');
-            modal.classList.add('active');
-            modalImg.src = src;
-        }
-
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
-        }
-
-        // Initialize decorations
-        window.addEventListener('DOMContentLoaded', () => {
-            createDecorations();
-        });
     </script>
 </body>
 </html>
