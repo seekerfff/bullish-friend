@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bullish Friends</title>
+    <title>$BULLISH FRIEND</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Animated Background Elements -->
+    <!-- Animated Background -->
     <div class="background-animation">
         <?php for ($i = 1; $i <= 16; $i++): ?>
         <div class="particle" style="--i: <?= $i ?>"></div>
@@ -17,8 +18,19 @@
 
     <!-- Header Section -->
     <header class="sticky-header">
-        <img src="src/1.webp" alt="Logo" class="logo-parallax">
-        <div class="header-controls">
+        <h1 class="main-title">$BULLISH FRIEND</h1>
+        
+        <div class="header-group">
+            <div class="token-group">
+                <button class="buy-button" onclick="window.open('https://meme.cooking/meme/1254', '_blank')">
+                    BUY NOW <i class="fas fa-coins"></i>
+                </button>
+                <div class="token-address" onclick="copyAddress()">
+                    CA: bullish-1254.meme-cooking.near
+                    <div class="toast">Copied!</div>
+                </div>
+            </div>
+            
             <div class="social-icons">
                 <a href="https://t.me/Bullish_Friends" target="_blank" class="social-icon">
                     <i class="fab fa-telegram"></i>
@@ -27,25 +39,19 @@
                     <i class="fab fa-x-twitter"></i>
                 </a>
             </div>
-            <button class="buy-button" onclick="window.open('https://meme.cooking/meme/1254', '_blank')">
-                BUY NOW <i class="fas fa-rocket"></i>
-            </button>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Token Address -->
-        <div class="token-container">
-            <div class="token-address" onclick="copyAddress()">
-                CA: bullish-1254.meme-cooking.near
-                <div class="toast">Copied!</div>
-            </div>
-        </div>
+    <!-- Creation Section -->
+    <div class="creation-section">
+        <span class="creation-text">Created on</span>
+        <a href="https://x.com/memedotcooking" target="_blank">
+            <img src="src/meme-cooking.webp" alt="Meme Cooking" class="creation-logo">
+        </a>
+    </div>
 
-        <!-- Unified Meme Gallery -->
-        <div class="unified-gallery" id="gallery"></div>
-    </main>
+    <!-- Unified Meme Gallery -->
+    <main class="unified-gallery" id="gallery"></main>
 
     <!-- Meme Modal -->
     <div class="meme-modal" id="modal">
@@ -53,11 +59,16 @@
         <div class="modal-content" id="modal-content"></div>
     </div>
 
+    <!-- Powered By Footer -->
+    <footer class="powered-by">
+        <span>Powered by</span>
+        <img src="src/near-logo.webp" alt="NEAR Protocol" class="near-logo">
+    </footer>
+
     <script>
         // Configuration
         const totalImages = 70;
         const totalVideos = 6;
-        const backgroundParticles = 16;
 
         // Generate Gallery
         function generateGallery() {
@@ -65,18 +76,12 @@
             
             // Add images
             for (let i = 1; i <= totalImages; i++) {
-                gallery.appendChild(createMediaElement(
-                    `memes/${i}.webp`, 
-                    'image'
-                ));
+                gallery.appendChild(createMediaElement(`memes/meme${i}.webp`, 'image'));
             }
             
             // Add videos
             for (let i = 1; i <= totalVideos; i++) {
-                gallery.appendChild(createMediaElement(
-                    `meme%20videos/${i}.webm`,
-                    'video'
-                ));
+                gallery.appendChild(createMediaElement(`meme%20videos/${i}.webm`, 'video'));
             }
         }
 
@@ -93,7 +98,14 @@
                 const video = document.createElement('video');
                 video.innerHTML = `<source src="${src}" type="video/webm">`;
                 video.loop = true;
-                video.addEventListener('mouseenter', () => video.play());
+                video.muted = false; // Enable audio
+                video.addEventListener('mouseenter', () => {
+                    video.play().catch(error => {
+                        // Handle autoplay restrictions
+                        video.muted = true;
+                        video.play();
+                    });
+                });
                 video.addEventListener('mouseleave', () => video.pause());
                 container.appendChild(video);
             }
@@ -131,21 +143,7 @@
         }
 
         // Initialize
-        window.addEventListener('DOMContentLoaded', () => {
-            generateGallery();
-            initParallax();
-        });
-
-        // Parallax Effect
-        function initParallax() {
-            const logo = document.querySelector('.logo-parallax');
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                logo.style.transform = `translateY(${scrolled * 0.5}px) 
-                                      rotate(${scrolled * 0.2}deg) 
-                                      scale(${1 + scrolled * 0.0005})`;
-            });
-        }
+        window.addEventListener('DOMContentLoaded', generateGallery);
     </script>
 </body>
 </html>
