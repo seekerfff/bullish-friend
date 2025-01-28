@@ -3,183 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$BULLISH - Community-Powered Meme Coin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --teal: #00EC97;
-            --navy: #2D3047;
-            --yellow: #FFFD82;
-            --orange: #FF9B71;
-            --red: #E84855;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: var(--navy);
-            color: var(--yellow);
-            font-family: 'Arial', sans-serif;
-            min-height: 100vh;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 4rem 2rem;
-            position: relative;
-        }
-
-        .logo {
-            width: 200px;
-            margin: 2rem auto;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1.5rem 0;
-        }
-
-        .social-link {
-            font-size: 1.5rem;
-            color: var(--orange);
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            color: var(--teal);
-            transform: translateY(-3px);
-        }
-
-        /* Content Section */
-        .content {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        /* Creation Badge */
-        .creation-badge {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-
-        .creation-badge:hover {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        .creation-badge img {
-            width: 120px;
-            border-radius: 10px;
-            border: 2px solid var(--teal);
-        }
-
-        .creation-text {
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--yellow);
-            font-size: 0.9rem;
-            white-space: nowrap;
-        }
-
-        /* Token Address */
-        .token-address {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .token-address:hover {
-            background: var(--teal);
-            color: var(--navy);
-        }
-
-        /* NEAR Protocol Badge */
-        .near-badge {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            color: var(--teal);
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-    </style>
+    <title>Bullish Friends</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Hero Section -->
-    <section class="hero">
-        <img src="src/1.webp" alt="BULLISH Logo" class="logo">
-        
+    <header class="hero">
+        <img src="src/1.webp" alt="Bullish Friends Logo" class="logo-animation">
         <div class="social-links">
-            <a href="https://t.me/Bullish_Friends" target="_blank" class="social-link">
-                <i class="fab fa-telegram"></i>
-            </a>
-            <a href="https://x.com/bullish_friend" target="_blank" class="social-link">
-                <i class="fab fa-twitter"></i>
+            <a href="https://t.me/Bullish_Friends" target="_blank" class="social-button tg">Telegram</a>
+            <a href="https://x.com/bullish_friend" target="_blank" class="social-button x">Twitter/X</a>
+        </div>
+    </header>
+
+    <!-- Created On Section -->
+    <section class="creation-section">
+        <div class="creation-container">
+            <span class="creation-text">Created on</span>
+            <a href="https://x.com/memedotcooking" target="_blank">
+                <img src="src/meme-cooking.webp" alt="Meme Cooking" class="creation-image">
             </a>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <div class="content">
-        <p>$BULLISH is a vibrant, artist-driven ecosystem dedicated to revitalizing creativity on NEAR. We empower artists by building a dynamic hub where innovation, collaboration, and bold expression thrive. A key strategy for growth is uniting the best memes through art and humor, forging strong bonds between meme communities and strengthening meme culture on NEAR. As NEAR is an AI-powered blockchain, it's only natural for artists to harness AI technologies in their creative process. By blending cutting-edge technology, such as AI-generated videos, AI-powered audio, and other creative tools, with the talent and vision of real artists, $bullish fosters a space for creators to grow, connect, and redefine the boundaries of digital art and culture. Together, we aim to make NEAR the ultimate destination for artists, memers, collectors, and visionaries.</p>
-    </div>
-
-    <!-- Creation Badge -->
-    <a href="https://x.com/memedotcooking" target="_blank" class="creation-badge">
-        <img src="src/meme-cooking.jpg" alt="Creation Platform">
-        <div class="creation-text">Created on MemeCooking</div>
-    </a>
-
     <!-- Token Address -->
     <div class="token-address" onclick="copyAddress()">
         CA: bullish-1254.meme-cooking.near
-        <span class="tooltip">Copied!</span>
+        <div class="toast">Copied!</div>
     </div>
 
-    <!-- NEAR Protocol Badge -->
-    <div class="near-badge">
-        ⚡ Powered by NEAR Protocol
-    </div>
+    <!-- Meme Galleries -->
+    <main class="gallery-container">
+        <section class="gallery-section">
+            <h2>Image Memes</h2>
+            <div class="meme-grid" id="image-gallery"></div>
+        </section>
+
+        <section class="gallery-section">
+            <h2>Video Memes</h2>
+            <div class="meme-grid" id="video-gallery"></div>
+        </section>
+    </main>
+
+    <!-- Powered By -->
+    <footer class="powered-by">
+        <span>Powered by</span>
+        <img src="src/near-logo.webp" alt="NEAR Protocol" class="near-logo">
+    </footer>
 
     <script>
+        // Configuration - Update these numbers when adding new memes
+        const imageCount = 70;
+        const videoCount = 6;
+
+        function generateMemeGallery() {
+            const imageGallery = document.getElementById('image-gallery');
+            const videoGallery = document.getElementById('video-gallery');
+
+            // Generate image memes
+            for (let i = 1; i <= imageCount; i++) {
+                const wrapper = document.createElement('a');
+                wrapper.className = 'meme-item';
+                wrapper.href = `memes/meme${i}.webp`;
+                wrapper.target = '_blank';
+                
+                const img = document.createElement('img');
+                img.src = `memes/meme${i}.webp`;
+                img.alt = `Meme ${i}`;
+                
+                wrapper.appendChild(img);
+                imageGallery.appendChild(wrapper);
+            }
+
+            // Generate video memes
+            for (let i = 1; i <= videoCount; i++) {
+                const container = document.createElement('div');
+                container.className = 'meme-item video-container';
+                
+                const video = document.createElement('video');
+                video.className = 'meme-video';
+                video.loop = true;
+                video.muted = true;
+                
+                const source = document.createElement('source');
+                source.src = `meme%20videos/${i}.webm`;
+                source.type = 'video/webm';
+                
+                video.appendChild(source);
+                container.appendChild(video);
+                videoGallery.appendChild(container);
+
+                // Add video controls
+                video.addEventListener('mouseenter', () => video.play());
+                video.addEventListener('mouseleave', () => video.pause());
+            }
+        }
+
         function copyAddress() {
-            const text = 'bullish-1254.meme-cooking.near';
-            navigator.clipboard.writeText(text);
-            
-            const tooltip = document.querySelector('.tooltip');
-            tooltip.style.display = 'inline';
+            navigator.clipboard.writeText("bullish-1254.meme-cooking.near");
+            document.querySelector('.toast').classList.add('show');
             setTimeout(() => {
-                tooltip.style.display = 'none';
+                document.querySelector('.toast').classList.remove('show');
             }, 2000);
         }
+
+        // Initialize galleries when page loads
+        window.addEventListener('DOMContentLoaded', generateMemeGallery);
     </script>
 </body>
 </html>
