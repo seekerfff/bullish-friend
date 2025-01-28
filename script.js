@@ -10,7 +10,7 @@ function loadGallery() {
 
     // Load images
     for (let i = 1; i <= totalImages; i++) {
-        gallery.appendChild(createMediaElement(`memes/meme${i}.webp`, 'image'));
+        gallery.appendChild(createMediaElement(`memes/${i}.webp`, 'image'));
     }
 
     // Load videos
