@@ -64,11 +64,11 @@
             for (let i = 1; i <= imageCount; i++) {
                 const wrapper = document.createElement('a');
                 wrapper.className = 'meme-item';
-                wrapper.href = `memes/meme${i}.webp`;
+                wrapper.href = `memes/${i}.webp`;
                 wrapper.target = '_blank';
                 
                 const img = document.createElement('img');
-                img.src = `memes/meme${i}.webp`;
+                img.src = `memes/${i}.webp`;
                 img.alt = `Meme ${i}`;
                 
                 wrapper.appendChild(img);
