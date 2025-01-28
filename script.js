@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function loadGallery() {
     const gallery = document.getElementById('gallery');
-    const totalImages = 70;
+    const totalImages = 72;
     const totalVideos = 6;
 
     // Load images
